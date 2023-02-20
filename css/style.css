@@ -87,6 +87,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
     border: none;
     outline: none;
     background-color: var(--purple);
+    box-shadow: 0 0 10px rgba(81, 65, 79, .5);
     color: var(--white);
     cursor: pointer;
     border-radius: 6px;

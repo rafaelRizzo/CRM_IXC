@@ -116,7 +116,7 @@
         getHoraBoasVindas()
         setInterval(() => {
             getHoraBoasVindas()
-        }, 1000);
+        }, 10000);
         document.querySelector("#boas-vindas").innerHTML
 
 
