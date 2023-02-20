@@ -8,7 +8,14 @@
     --purple: #51414F;
     --purple-soft: #685465;
     --purple-light: #E6E6FA;
+
     --white: #F6F6F6;
+
+    --red: #B70000;
+    --red-light: #c04f4f;
+
+    --green: #3f613f;
+    --green-light2: #516951;
 }
 
 body {
@@ -21,6 +28,57 @@ body {
     justify-content: center;
     text-align: center;
     min-height: 100vh;
+}
+
+.container-alerts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    max-height: 50px;
+    z-index: 99999;
+}
+
+.container-alerts h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.dados-invalidos,
+.logado-sucesso {
+    align-items: center;
+    justify-content: center;
+    min-width: 500px;
+    max-width: 500px;
+    min-height: 50px;
+    max-height: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    display: none;
+    opacity: 0;
+    transform: translateY(-50px);
+    transition: all .5s ease;
+}
+
+.move {
+    display: flex;
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+.dados-invalidos {
+    background-color: var(--red-light);
+    color: var(--white);
+    border-left: 6px solid var(--red);
+}
+
+.logado-sucesso {
+    background-color: var(--green-light2);
+    color: var(--white);
+    border-left: 6px solid var(--green);
 }
 
 .box-left,
@@ -162,5 +220,11 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
 
     .box-right {
         display: none;
+    }
+
+    .dados-invalidos,
+    .logado-sucesso{
+        min-width: 100%;
+        max-width: 100%;
     }
 }

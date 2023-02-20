@@ -33,18 +33,36 @@
 
 
     <main class="container-flex">
+
+        <!-- Alerts -->
+        <div class="container-alerts">
+            <div class="dados-invalidos">
+                <h6>Agente ou senha incorreto!</h6>
+            </div>
+            <div class="logado-sucesso">
+                <h6>Logado com sucesso!</h6>
+            </div>
+        </div>
+        <!-- Alerts -->
+
+        <!-- Box left -->
         <section class="box-left">
+            <!-- Form login -->
             <form>
 
+                <!-- Boas vindas (dia/tarde/noite) -->
                 <h6 id="boas-vindas"></h6>
+                <!-- Boas vindas (dia/tarde/noite) -->
 
                 <h2>
                     Bem-vindo de volta!
                 </h2>
 
+                <!-- Select agentes -->
                 <div class="input-field col s12">
                     <select id="usuario">
                         <option value="" disabled selected>Selecione seu Agente</option>
+
                         <?php
                         require_once("./db/config.php");
                         // Script em php para popular o select de acordo com o banco
@@ -71,21 +89,31 @@
                             echo "<option>Erro ao consultar usuários no banco!</option>";
                         }
                         ?>
+
                     </select>
                 </div>
+                <!-- Select agentes -->
 
-
+                <!-- Container Senha -->
                 <div>
                     <label for="senha"></label>
                     <input type="password" id="senha" placeholder="Digite sua senha">
                 </div>
+                <!-- Container Senha -->
 
+                <!-- Botao valida login -->
                 <button type="submit">Entrar</button>
+                <!-- Botao valida login -->
             </form>
+            <!-- Form login -->
+
+            <!-- Rodape -->
             <footer>
                 &copy; Rafael Rizzo <span id="year"></span>
             </footer>
+            <!-- Rodape -->
         </section>
+        <!-- Box left -->
 
         <section class="box-right">
             <div class="box-top">.</div>
@@ -94,36 +122,9 @@
         </section>
     </main>
 
-
-
-
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        let date = new Date()
-        document.querySelector("#year").innerHTML = `~ ${date.getFullYear()}`
-
-        function getHoraBoasVindas() {
-            let date = new Date()
-            if (date.getHours() >= 0 && date.getHours() < 12) {
-                document.querySelector("#boas-vindas").innerHTML = "Bom dia!"
-            } else if (date.getHours() >= 12 && date.getHours() < 18) {
-                document.querySelector("#boas-vindas").innerHTML = "Boa tarde!"
-            } else if (date.getHours() >= 18 && date.getHours() <= 23) {
-                document.querySelector("#boas-vindas").innerHTML = "Boa noite!"
-            }
-        }
-        getHoraBoasVindas()
-        setInterval(() => {
-            getHoraBoasVindas()
-        }, 10000);
-        document.querySelector("#boas-vindas").innerHTML
-
-
-        $(document).ready(function() {
-            $('select').formSelect();
-        });
-    </script>
+    <script src="./login/js/script.js"></script>
 
 </body>
 
