@@ -16,7 +16,6 @@ setInterval(() => {
     getHoraBoasVindas()
 }, 10000);
 
-
 $(document).ready(function () {
     $('select').formSelect();
 });

@@ -1,3 +1,9 @@
+<?php
+session_start();
+session_destroy();
+
+
+?>
 <!doctype html>
 <html lang="pt-br">
 
@@ -60,7 +66,7 @@
 
                 <!-- Select agentes -->
                 <div class="input-field col s12">
-                    <select id="usuario">
+                    <select id="usuario" require>
                         <option value="" disabled selected>Selecione seu Agente</option>
 
                         <?php
@@ -97,7 +103,7 @@
                 <!-- Container Senha -->
                 <div>
                     <label for="senha"></label>
-                    <input type="password" id="senha" placeholder="Digite sua senha">
+                    <input type="password" id="senha" placeholder="Digite sua senha" require>
                 </div>
                 <!-- Container Senha -->
 
@@ -122,9 +128,29 @@
         </section>
     </main>
 
+    <!-- Loader -->
+    <div class="container-loader">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-purple-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Validando informações</p>
+    </div>
+    <!-- Loader -->
+
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="./login/js/script.js"></script>
+    <script src="./login/validaLogin/ajax.js"></script>
 
 </body>
 
