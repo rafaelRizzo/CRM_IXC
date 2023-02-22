@@ -93,7 +93,13 @@ document.querySelector("form").addEventListener("submit", (e) => {
                 setTimeout(() => {
                     window.location.assign("./pages/suporte");
                 }, 1000);
-            } else {
+            } else if (res == 'mudarSenha') {
+                modalSucesso()
+                setTimeout(() => {
+                    window.location.assign("./login/alteraSenha");
+                }, 1000);
+            }
+            else {
                 senha = ''
                 modalErro()
             }
