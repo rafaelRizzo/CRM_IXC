@@ -136,6 +136,12 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
     color: var(--purple);
 }
 
+
+input[type="password"]:not(.browser-default) {
+    color: var(--purple);
+}
+
+
 .box-left form button {
     display: block;
     width: 100%;

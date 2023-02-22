@@ -1,5 +1,9 @@
 <?php
 session_start();
+
+if($_SESSION['alterarSenha']!="true"){
+    header("Location: ../../");
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -12,6 +16,13 @@ session_start();
     <style>
         @import url("https://fonts.googleapis.com/css?family=Raleway:800&display=swap");
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
         body {
             margin: 0px;
         }
@@ -23,7 +34,6 @@ session_start();
             height: 80pt;
             top: 0;
             bottom: 0;
-
             filter: url(#threshold) blur(0.6px);
         }
 
@@ -71,7 +81,7 @@ session_start();
 
         const texts = [
             "Olá!",
-            // "<?php echo $_SESSION['user']['agent']; ?>",
+            "<?php echo $_SESSION['user']['agent']; ?>",
             "Para sua",
             "Segurança",
             "Troque a sua",

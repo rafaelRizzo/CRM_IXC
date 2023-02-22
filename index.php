@@ -1,6 +1,7 @@
 <?php
 session_start();
 session_destroy();
+require_once("./db/config.php");
 
 
 ?>
@@ -67,10 +68,8 @@ session_destroy();
                 <!-- Select agentes -->
                 <div class="input-field col s12">
                     <select id="usuario">
-                        <option value="" disabled selected>Selecione seu Agente</option>
-
+                        <option value="">Selecione seu Agente</option>
                         <?php
-                        require_once("./db/config.php");
                         // Script em php para popular o select de acordo com o banco
 
                         $sql = $pdo->prepare("SELECT id, username, agent, status FROM usuarios");
@@ -95,7 +94,6 @@ session_destroy();
                             echo "<option>Erro ao consultar usuários no banco!</option>";
                         }
                         ?>
-
                     </select>
                 </div>
                 <!-- Select agentes -->
@@ -149,8 +147,11 @@ session_destroy();
 
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="./login/js/script.js"></script>
     <script src="./login/validaLogin/ajax.js"></script>
+
+
 
 </body>
 

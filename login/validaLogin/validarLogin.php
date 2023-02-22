@@ -21,6 +21,7 @@ if ($usuario != "" && $senha != "") {
     } else if ($usuario != 'ADMIN' && $senha == "mudar123") {
         if ($sql->rowCount() > 0) {
             $_SESSION['login'] = 'true';
+            $_SESSION['alterarSenha'] = 'true';
             $_SESSION['user'] = $sql->fetch(PDO::FETCH_ASSOC);
             echo json_encode('mudarSenha');
         } else {
