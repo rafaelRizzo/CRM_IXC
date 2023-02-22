@@ -21,6 +21,7 @@
 body {
     font-family: 'Barlow', sans-serif;
     overflow-x: hidden;
+    background-color: var(--white);
 }
 
 .container-flex {
@@ -139,6 +140,7 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
     display: block;
     width: 100%;
     margin-top: 50px;
+    margin-bottom: 50px;
     padding: 10px 20px;
     font-size: 18px;
     border: none;
@@ -210,6 +212,8 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
     z-index: 2;
 }
 
+/* Loader */
+
 .container-loader {
     position: fixed;
     top: 0;
@@ -224,9 +228,10 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
     background-color: rgba(0, 0, 0, .8);
     opacity: 0;
     color: var(--purple-light);
+    transition: all .5s ease;
 }
 
-.container-loader p{
+.container-loader p {
     margin-top: 10px;
 }
 
@@ -235,7 +240,9 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
     z-index: 999;
 }
 
-/*  */
+/* Loader */
+
+/* Medias querys */
 
 @media (max-width: 768px) {
     .container-flex {
@@ -252,3 +259,5 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
         max-width: 100%;
     }
 }
+
+/* Medias querys */

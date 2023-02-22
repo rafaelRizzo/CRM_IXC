@@ -66,7 +66,7 @@ session_destroy();
 
                 <!-- Select agentes -->
                 <div class="input-field col s12">
-                    <select id="usuario" require>
+                    <select id="usuario">
                         <option value="" disabled selected>Selecione seu Agente</option>
 
                         <?php
@@ -103,7 +103,7 @@ session_destroy();
                 <!-- Container Senha -->
                 <div>
                     <label for="senha"></label>
-                    <input type="password" id="senha" placeholder="Digite sua senha" require>
+                    <input type="password" id="senha" placeholder="Digite sua senha" required>
                 </div>
                 <!-- Container Senha -->
 

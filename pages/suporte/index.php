@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-// if ($_SESSION['login'] != 'true') {
-//     header("Location: ../../index.php");
-// }
-
-$_SESSION['user'] = 'Rafael Rizzo';
+if ($_SESSION['login'] != 'true') {
+    header("Location: ../../index.php");
+}
 
 ?>
 
@@ -18,16 +16,16 @@ $_SESSION['user'] = 'Rafael Rizzo';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-
+    <!-- Seta o nome do agente no localstorage -->
+    <script>
+        localStorage.setItem("agente", "<?php echo $_SESSION['user']['agent']; ?>")
+        console.log(localStorage.getItem("agente"))
+    </script>
+    <!-- Seta o nome do agente no localstorage -->
 </head>
 
 <body>
-    <!-- Seta o nome do agente em Cookie -->
-    <script>
-        localStorage.setItem("agente", "<?php echo $_SESSION['user']; ?>")
-        console.log(localStorage.getItem("agente"))
-    </script>
-    <!-- Seta o nome do agente em Cookie -->
+
 </body>
 
 </html>
