@@ -147,9 +147,6 @@ require_once("./db/config.php");
 
     <script src="./login/js/script.js"></script>
     <script src="./login/validaLogin/ajax.js"></script>
-
-
-
 </body>
 
 </html>

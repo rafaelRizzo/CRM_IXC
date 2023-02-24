@@ -1,3 +1,4 @@
+// DOM
 const loader = document.querySelector(".container-loader")
 
 const modalErro = () => {
@@ -49,13 +50,18 @@ const modalSucesso = () => {
         }, 5000);
     }, 100)
 }
+// DOM
 
+// Função para validar a primeira parte do form 
 document.querySelector(".form1").addEventListener("submit", (e) => {
+    // Função pra cancelar o envio padrão, pois não vou querer fazer padrão...
     e.preventDefault()
 
-    senha1 = document.querySelector("#senha1")
-    senha2 = document.querySelector("#senha2")
+    // Declaro e defino aqui toda vez que ele fazer o submit pois o valor será atualizado toda vez, se declarasse fora o valor não seria alterado
+    let senha1 = document.querySelector("#senha1")
+    let senha2 = document.querySelector("#senha2")
 
+    // Validações iniciais dos campos
     if (senha1.value != senha2.value) {
         alert("As senhas devem ser iguais!")
     } else if (senha1.value == "" || senha2.value == ""
@@ -66,7 +72,7 @@ document.querySelector(".form1").addEventListener("submit", (e) => {
     } else if (senha1.value == senha2.value
         && senha1.value != "" && senha2.value != ""
         && senha1.value.length >= 8 && senha2.value.length >= 8) {
-        console.log('ok')
+        // Se tudo estiver ok removo o display o form 1 e mostro o form 2 para ser preenchido
         document.querySelector(".form1").style.display = 'none'
         document.querySelector(".form2").style.display = 'flex'
     }
@@ -74,12 +80,15 @@ document.querySelector(".form1").addEventListener("submit", (e) => {
 
 
 document.querySelector(".form2").addEventListener("submit", (e) => {
+    // Função pra cancelar o envio padrão, pois não vou querer fazer padrão...
     e.preventDefault()
 
-    senha1 = document.querySelector("#senha1")
-    senha2 = document.querySelector("#senha2")
+    // Defini novamente somente para validar, pois o usuario pode ser mal intensionado e querer dar um inspecionar elemento para passar para frente...
+    let senha1 = document.querySelector("#senha1")
+    let senha2 = document.querySelector("#senha2")
 
-    palavraSecreta = document.querySelector("#palavraSecreta")
+    // Mais uma validação para segurança
+    let palavraSecreta = document.querySelector("#palavraSecreta")
 
     if (senha1.value != "" && senha2.value != "" && palavraSecreta.value != "") {
         $.ajax({
@@ -87,38 +96,39 @@ document.querySelector(".form2").addEventListener("submit", (e) => {
             method: "POST",
             dataType: "json",
             beforeSend: function () {
-
+                // Aplico o loading até ser concluido 
                 loader.style.display = "flex"
                 setTimeout(() => {
                     loader.style.opacity = "1"
                 }, 200);
-
             }
         }).done(function (res) {
-            console.log(res)
+            // console.log(res) Descomentar somente para debug
 
+            // Chegará aqui se tudo estiver ok e se as credênciais foram alteradas com sucesso!
             if (res == 'cheguei aqui') {
+                // Removo o loading após concluido
                 loader.style.opacity = "0"
                 setTimeout(() => {
                     loader.style.display = "none"
+                    // Mostro o modal de logado
+                    modalSucesso()
+                    // Redireciono para outro página
                     setTimeout(() => {
-                        modalSucesso()
-                    }, 1500)
+                        window.location.assign("../../pages/suporte");
+                    }, 1000);
                 }, 1000);
             } else {
+                // Chegará aqui se der algum erro ao alterar a senha do agente
                 loader.style.opacity = "0"
                 setTimeout(() => {
                     loader.style.display = "none"
-                    alert("Ocorreu algum erro para alterar a senha, feche e abra novamente a aba!")
+                    alert("Ocorreu algum erro para alterar a senha, atualize a pagina e faça refaça novamente!")
                 }, 1000);
-
             }
-
-
-
         })
     } else {
+        // Chegará aqui se o input da palavra secreta estiver vazio.
         modalErro()
     }
-
 })
