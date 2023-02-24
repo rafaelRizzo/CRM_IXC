@@ -31,6 +31,8 @@ body {
     min-height: 100vh;
 }
 
+/* Alerts */
+
 .container-alerts {
     position: fixed;
     top: 0;
@@ -80,6 +82,8 @@ body {
     color: var(--white);
     border-left: 6px solid var(--green);
 }
+
+/* Alerts */
 
 .box-left,
 .box-right {

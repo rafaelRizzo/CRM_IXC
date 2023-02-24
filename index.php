@@ -37,10 +37,7 @@ require_once("./db/config.php");
 </head>
 
 <body>
-
-
     <main class="container-flex">
-
         <!-- Alerts -->
         <div class="container-alerts">
             <div class="dados-invalidos">

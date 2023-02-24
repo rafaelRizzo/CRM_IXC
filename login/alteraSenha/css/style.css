@@ -29,6 +29,60 @@ body {
     overflow-x: hidden;
 }
 
+/* Alerts */
+.container-alerts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    max-height: 50px;
+    z-index: 99999;
+}
+
+.container-alerts h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.dados-invalidos,
+.logado-sucesso {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 500px;
+    max-width: 500px;
+    min-height: 50px;
+    max-height: 50px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    opacity: 1;
+    transform: translateY(-50px);
+    transition: all .5s ease;
+}
+
+.move {
+    transform: translateY(5px);
+    opacity: 1;
+}
+
+.dados-invalidos {
+    background-color: var(--red-light);
+    color: var(--white);
+    border-left: 6px solid var(--red);
+}
+
+.logado-sucesso {
+    background-color: var(--green-light2);
+    color: var(--white);
+    border-left: 6px solid var(--green);
+}
+
+/* Alerts */
+/* Alerts */
+
 form {
     display: flex;
     flex-direction: column;
@@ -84,17 +138,20 @@ form h4 {
     color: var(--purple-soft);
 }
 
-input[type="password"]:not(.browser-default)::placeholder{
+input[type="password"]:not(.browser-default)::placeholder,
+input[type="text"]:not(.browser-default)::placeholder {
     color: var(--purple-soft);
 }
 
-input[type="password"]:not(.browser-default) {
+input[type="password"]:not(.browser-default),
+input[type="text"]:not(.browser-default) {
     margin: 20px;
     border-color: var(--purple-soft);
     color: var(--purple);
 }
 
-input[type="password"]:not(.browser-default):focus:not([readonly]) {
+input[type="password"]:not(.browser-default):focus:not([readonly]),
+input[type="text"]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid var(--purple-soft);
     -webkit-box-shadow: 0 1px 0 0 var(--purple-soft);
     color: var(--purple);
@@ -119,8 +176,50 @@ form button:hover {
     cursor: pointer;
 }
 
+button:focus {
+    background-color: var(--purple);
+}
+
+form.form2 {
+    display: none;
+}
+
+form.form2 img {
+    transform: rotate(0deg);
+}
+
+/* Loader */
+
+.container-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, .8);
+    opacity: 0;
+    color: var(--purple-light);
+    transition: all .5s ease;
+}
+
+.container-loader p {
+    margin-top: 10px;
+}
+
+.spinner-layer {
+    border-color: var(--purple-soft);
+    z-index: 999;
+}
+
+/* Loader */
+
 @media (max-width: 768px) {
-    form{
+    form {
         min-width: 100%;
         max-width: 100%;
     }
