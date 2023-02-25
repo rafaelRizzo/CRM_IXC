@@ -94,6 +94,11 @@ document.querySelector(".form2").addEventListener("submit", (e) => {
         $.ajax({
             url: "../alteraSenha/mudarASenha/alteraSenha.php",
             method: "POST",
+            data: {
+                agent: localStorage.getItem("idAgente"),
+                novaSenha: document.querySelector("#senha2").value,
+                palavraSecreta: document.querySelector("#palavraSecreta").value,
+            },
             dataType: "json",
             beforeSend: function () {
                 // Aplico o loading até ser concluido 
@@ -106,7 +111,7 @@ document.querySelector(".form2").addEventListener("submit", (e) => {
             // console.log(res) Descomentar somente para debug
 
             // Chegará aqui se tudo estiver ok e se as credênciais foram alteradas com sucesso!
-            if (res == 'cheguei aqui') {
+            if (res == 'true') {
                 // Removo o loading após concluido
                 loader.style.opacity = "0"
                 setTimeout(() => {

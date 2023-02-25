@@ -52,7 +52,10 @@ body {
 }
 
 .dados-invalidos,
-.logado-sucesso {
+.logado-sucesso,
+.dados-altera-senha-invalidos,
+.dados-altera-senha-sucesso,
+.dados-altera-senha-loop {
     display: none;
     align-items: center;
     justify-content: center;
@@ -71,19 +74,72 @@ body {
     opacity: 1;
 }
 
-.dados-invalidos {
+.dados-invalidos,
+.dados-altera-senha-invalidos,
+.dados-altera-senha-loop {
     background-color: var(--red-light);
     color: var(--white);
     border-left: 6px solid var(--red);
 }
 
-.logado-sucesso {
+.logado-sucesso,
+.dados-altera-senha-sucesso {
     background-color: var(--green-light2);
     color: var(--white);
     border-left: 6px solid var(--green);
 }
 
+
 /* Alerts */
+
+/* Modal */
+
+.modal-trigger {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: start;
+    justify-content: start;
+    text-align: start;
+    color: var(--purple-soft);
+    margin-bottom: 30px;
+}
+
+.modal-trigger:hover {
+    text-decoration: underline;
+}
+
+.modal.open {
+    min-height: 450px;
+    max-height: 450px;
+}
+
+.modal-content {
+    position: relative;
+}
+
+.modal-content h4 {
+    margin: 20px 0;
+}
+
+.modal i {
+    font-size: 14px;
+    opacity: .8;
+    color: var(--purple-soft);
+}
+
+#redefinirSenha a {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: var(--white);
+}
+
+#redefinirSenha button {
+    margin-top: 55px;
+}
+
+/* Modal */
 
 .box-left,
 .box-right {
@@ -133,7 +189,8 @@ body {
 }
 
 input:not([type]):focus:not([readonly]),
-input[type=password]:not(.browser-default):focus:not([readonly]) {
+input[type=password]:not(.browser-default):focus:not([readonly]),
+input[type=text]:not(.browser-default):focus:not([readonly]) {
     border-bottom: 1px solid var(--purple-soft);
     -webkit-box-shadow: 0 1px 0 0 var(--purple-soft);
     box-shadow: 0 1px 0 0 transparent;
@@ -141,15 +198,15 @@ input[type=password]:not(.browser-default):focus:not([readonly]) {
 }
 
 
-input[type="password"]:not(.browser-default) {
+input[type="password"]:not(.browser-default),
+input[type="text"]:not(.browser-default) {
     color: var(--purple);
 }
 
 
-.box-left form button {
+button {
     display: block;
     width: 100%;
-    margin-top: 50px;
     margin-bottom: 50px;
     padding: 10px 20px;
     font-size: 18px;
@@ -163,7 +220,11 @@ input[type="password"]:not(.browser-default) {
     transition: .2s ease;
 }
 
-.box-left form button:hover {
+button:hover {
+    background-color: var(--purple-soft);
+}
+
+button:focus {
     background-color: var(--purple-soft);
 }
 

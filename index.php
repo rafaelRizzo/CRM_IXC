@@ -46,6 +46,16 @@ require_once("./db/config.php");
             <div class="logado-sucesso">
                 <h6>Logado com sucesso!</h6>
             </div>
+
+            <div class="dados-altera-senha-invalidos">
+                <h6>Agente ou palavra secreta incorreta!</h6>
+            </div>
+            <div class="dados-altera-senha-sucesso">
+                <h6>Senha redefinida com sucesso!</h6>
+            </div>
+            <div class="dados-altera-senha-loop">
+                <h6>A senha já é a padrão, tente logar...</h6>
+            </div>
         </div>
         <!-- Alerts -->
 
@@ -102,11 +112,66 @@ require_once("./db/config.php");
                 </div>
                 <!-- Container Senha -->
 
+                <!-- Esqueci minha senha -->
+                <a class="modal-trigger" href="#redefinirSenha">Esqueci minha senha</a>
+
                 <!-- Botao valida login -->
                 <button type="submit">Entrar</button>
                 <!-- Botao valida login -->
             </form>
             <!-- Form login -->
+
+            <!-- Modal Structure -->
+            <div id="redefinirSenha" class="modal">
+                <div class="modal-content">
+                    <h4>Redefinição de senha</h4>
+                    <!-- Select agentes -->
+                    <div class="input-field col s12">
+                        <select id="usuario-redefinicao-senha">
+                            <option value="">Selecione seu Agente</option>
+                            <?php
+                            // Script em php para popular o select de acordo com o banco
+
+                            $sql = $pdo->prepare("SELECT id, username, agent, status FROM usuarios");
+                            $sql->execute();
+
+                            if ($sql->rowCount() > 0) {
+                                $agents = $sql->fetchAll(PDO::FETCH_ASSOC);
+                                foreach ($agents as $ag) {
+                                    if ($ag['status'] != 0 && $ag['username'] != "ADMIN" && $ag['username'] != "TESTE") {
+                                        echo "
+                            <option value=" . $ag['username'] . ">"
+                                            . $ag['username'] . " - " . $ag['agent'] .
+                                            "</option>";
+                                    } else if ($ag['username'] == "ADMIN" || $ag['username'] == "TESTE") {
+                                        echo "
+                            <option value=" . $ag['username'] . ">"
+                                            . $ag['username'] .
+                                            "</option>";
+                                    }
+                                }
+                            } else {
+                                echo "<option>Erro ao consultar usuários no banco!</option>";
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <!-- Select agentes -->
+
+                    <div class="">
+                        <!-- Container palavra secreta -->
+                        <div>
+                            <label for="palavra-secreta"></label>
+                            <input type="text" id="palavra-secreta" placeholder="Digite sua palavra secreta." required>
+                            <i>A palavra secreta foi criada assim que você logou pela primeira vez, caso não lembre solicite que um supervisor(a) ou coordenador(a)!</i>
+                        </div>
+                        <!-- Container palavra secreta -->
+                        <button id="btn-redefinir-senha">Redefinir senha</button>
+                    </div>
+                </div>
+                <a href="#" class="red modal-close waves-effect waves-light btn-flat">X</a>
+            </div>
+            <!-- Esqueci minha senha -->
 
             <!-- Rodape -->
             <footer>
@@ -147,6 +212,7 @@ require_once("./db/config.php");
 
     <script src="./login/js/script.js"></script>
     <script src="./login/validaLogin/ajax.js"></script>
+    <script src="./login/redefinirSenha/ajax.js"></script>
 </body>
 
 </html>
