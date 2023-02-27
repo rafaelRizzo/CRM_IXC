@@ -101,7 +101,7 @@ document.querySelector("form").addEventListener("submit", (e) => {
             if (res == 'true') {
                 modalSucesso()
                 setTimeout(() => {
-                    window.location.assign("./pages/suporte");
+                    window.location.assign("./pages/setores");
                 }, 1000);
             }
             // Trato o retorno da requisição no JS apenas para redirecionar a página.

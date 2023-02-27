@@ -1,5 +1,5 @@
 <?php
-include_once("../../db/config.php");
+include_once("../db/config.php");
 
 $sql = $pdo->prepare("SELECT * FROM empresas WHERE status != 0");
 $sql->execute();

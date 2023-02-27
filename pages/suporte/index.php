@@ -15,60 +15,32 @@ if ($_SESSION['login'] != 'true') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>CRM - Suporte</title>
     <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Compiled and minified CSS -->
 
+    <!-- Icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Icons -->
 
-    <style>
-        :root {
-            --purple2: #826AED;
-            --purple1: #C879FF;
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/cores.css">
+    <link rel="stylesheet" href="../css/modais/style.css">
+    <link rel="stylesheet" href="../css/recolor.css">
+    <link rel="stylesheet" href="./css/style.css">
 
-            --purple: #51414F;
-            --purple-soft: #685465;
-            --purple-light: #E6E6FA;
-
-            --white: #F6F6F6;
-
-            --red: #B70000;
-            --red-light: #c04f4f;
-
-            --green: #3f613f;
-            --green-light2: #516951;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background-color: var(--white);
-            overflow-x: hidden;
-            min-height: 100vh;
-        }
-
-        .fixed-action-btn .btn-floating.btn-large {
-            background-color: var(--purple1);
-        }
-
-        .fixed-action-btn ul li a.btn-floating {
-            background-color: var(--purple2);
-        }
-
-        .input-field {
-            margin-top: 0;
-        }
-    </style>
+    <!-- CSS -->
 
     <!-- Seta o nome do agente no localstorage (Só expira quando fecha a página) -->
     <script>
         localStorage.setItem("agente", "<?php echo $_SESSION['user']['agent']; ?>")
     </script>
     <!-- Seta o nome do agente no localstorage (Só expira quando fecha a página) -->
+
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!-- Jquery -->
 </head>
 
 <body>
@@ -82,7 +54,7 @@ if ($_SESSION['login'] != 'true') {
     <!-- Botão mais -->
     <div class="fixed-action-btn">
         <div class="container-helper">
-            <a class="btn-floating btn-large waves-effect waves-light pulse">
+            <a class="btn-floating btn-large waves-effect waves-light">
                 <i class="large material-icons">add</i>
             </a>
         </div>
@@ -98,7 +70,7 @@ if ($_SESSION['login'] != 'true') {
                 </a>
             </li>
             <li>
-                <a class="btn-floating yellow darken-2 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Informativos">
+                <a class="btn-floating red darken-4 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Informativos">
                     <i class="material-icons">warning</i>
                 </a>
             </li>
@@ -123,19 +95,35 @@ if ($_SESSION['login'] != 'true') {
                 </a>
             </li>
             <li>
-                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Minha conta">
+                <a class="btn-floating tooltipped waves-effect waves-light modal-trigger" href="#minha-conta" data-position="left" data-tooltip="Minha conta">
                     <i class="material-icons">person_outline</i>
                 </a>
             </li>
         </ul>
     </div>
 
+    <!-- Modais -->
 
-    <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
-    <!-- Compiled and minified JavaScript -->
+    <!-- Modal Minha Conta -->
+    <div id="minha-conta" class="modal">
+        <div class="modal-content center">
+            <h4>Minha conta</h4>
+            <p id=""><?php echo $_SESSION['user']['agent']; ?></p>
+        </div>
+        <div class="modal-footer">
+            <button id="salvar-alteracoes-login" class="modal-close waves-effect waves-light btn-flat green">Salvar</button>
+            <button class="modal-close waves-effect waves-light btn-flat red">Fechar</button>
+        </div>
+    </div>
+    <!-- Modal Minha Conta -->
+
+    <!-- Modais -->
+
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script src="./js/materialize.js"></script>
-    <script src="./js/reqEmpresas.js"></script>
+    <script src="../js/materialize.js"></script>
+    <script src="../js/reqEmpresas.js"></script>
+    <script src="../js/informativo.js"></script>
 </body>
 
 </html>

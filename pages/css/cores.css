@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --purple2: #826AED;
+    --purple1: #C879FF;
+
+    --purple: #51414F;
+    --purple-soft: #685465;
+    --purple-light: #E6E6FA;
+
+    --white: #F6F6F6;
+
+    --red: #B70000;
+    --red-light: #c04f4f;
+
+    --green: #3f613f;
+    --green-light2: #516951;
+    --black: #222;
+}

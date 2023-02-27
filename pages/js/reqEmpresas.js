@@ -1,7 +1,7 @@
 // Iniciando as funções que serão usadas
 const getEmpresas = () => {
     $.ajax({
-        url: "./db/gets/empresa.php",
+        url: "../../../gets/empresa.php",
         method: "POST",
         dataType: "json",
         beforeSend: function () {
