@@ -23,6 +23,9 @@ if ($_SESSION['login'] != 'true') {
 
     <style>
         :root {
+            --purple2: #826AED;
+            --purple1: #C879FF;
+
             --purple: #51414F;
             --purple-soft: #685465;
             --purple-light: #E6E6FA;
@@ -36,17 +39,28 @@ if ($_SESSION['login'] != 'true') {
             --green-light2: #516951;
         }
 
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             background-color: var(--white);
             overflow-x: hidden;
-        }
-
-        .container-helper {
-            position: relative;
+            min-height: 100vh;
         }
 
         .fixed-action-btn .btn-floating.btn-large {
-            background-color: var(--purple);
+            background-color: var(--purple1);
+        }
+
+        .fixed-action-btn ul li a.btn-floating {
+            background-color: var(--purple2);
+        }
+
+        .input-field {
+            margin-top: 0;
         }
     </style>
 
@@ -58,7 +72,7 @@ if ($_SESSION['login'] != 'true') {
 </head>
 
 <body>
- <div class="input-field col s12">
+    <div class="input-field col s12">
         <select id="empresa">
             <option value="" selected disabled>Selecione a empresa que está atendendo.</option>
             <option id="carregando-empresas" value="" disabled>Carregando... aguarde</option>
@@ -74,12 +88,12 @@ if ($_SESSION['login'] != 'true') {
         </div>
         <ul>
             <li>
-                <a class="btn-floating blue accent-3 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Resetar">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Resetar">
                     <i class="material-icons">refresh</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating blue accent-3 tooltipped waves-effect waves-light" data-position="left" data-tooltip="DarkMode">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="DarkMode">
                     <i class="material-icons">brightness_4</i>
                 </a>
             </li>
@@ -89,22 +103,27 @@ if ($_SESSION['login'] != 'true') {
                 </a>
             </li>
             <li>
-                <a class="btn-floating blue accent-3 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Exportar dados pessoais">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Exportar dados pessoais">
                     <i class="material-icons">import_export</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating blue accent-3 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Prazo da empresa">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Prazo da empresa">
                     <i class="material-icons">access_time</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating blue accent-3 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Documentos da empresa">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Documentos da empresa">
                     <i class="material-icons">content_paste</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating blue accent-3 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Minha conta">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Sincronizar empresas">
+                    <i class="material-icons">sync</i>
+                </a>
+            </li>
+            <li>
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Minha conta">
                     <i class="material-icons">person_outline</i>
                 </a>
             </li>
