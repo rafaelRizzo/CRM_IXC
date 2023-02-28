@@ -28,6 +28,7 @@ if ($_SESSION['login'] != 'true') {
     <link rel="stylesheet" href="../css/cores.css">
     <link rel="stylesheet" href="../css/modais/style.css">
     <link rel="stylesheet" href="../css/recolor.css">
+    <link rel="stylesheet" href="../css/loader.css">
     <link rel="stylesheet" href="./css/style.css">
 
     <!-- CSS -->
@@ -60,7 +61,7 @@ if ($_SESSION['login'] != 'true') {
         </div>
         <ul>
             <li>
-                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Resetar">
+                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Resetar campos">
                     <i class="material-icons">refresh</i>
                 </a>
             </li>
@@ -70,7 +71,7 @@ if ($_SESSION['login'] != 'true') {
                 </a>
             </li>
             <li>
-                <a class="btn-floating red darken-4 tooltipped waves-effect waves-light" data-position="left" data-tooltip="Informativos">
+                <a class="btn-floating tooltipped waves-effect waves-light" id="informativos-icon" data-position="left" data-tooltip="Informativos">
                     <i class="material-icons">warning</i>
                 </a>
             </li>
@@ -80,17 +81,17 @@ if ($_SESSION['login'] != 'true') {
                 </a>
             </li>
             <li>
-                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Prazo da empresa">
+                <a class="btn-floating tooltipped waves-effect waves-light" id="prazo-icon" data-position="left" data-tooltip="Selecione uma empresa para saber o prazo">
                     <i class="material-icons">access_time</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Documentos da empresa">
+                <a href="https://docs.google.com/document/u/0/" target="_blank" id="documentos-icon" class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Documentos da empresa">
                     <i class="material-icons">content_paste</i>
                 </a>
             </li>
             <li>
-                <a class="btn-floating tooltipped waves-effect waves-light" data-position="left" data-tooltip="Sincronizar empresas">
+                <a class="btn-floating tooltipped waves-effect waves-light" id="sync-empresas" data-position="left" data-tooltip="Sincronizar empresas">
                     <i class="material-icons">sync</i>
                 </a>
             </li>
@@ -119,10 +120,38 @@ if ($_SESSION['login'] != 'true') {
 
     <!-- Modais -->
 
+    <!-- Loader -->
+    <div class="container-loader">
+        <div class="preloader-wrapper big active">
+            <div class="spinner-layer spinner-purple-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <p>Sincronizando empresas...</p>
+    </div>
+
+    <div class="container-loader-sucesso">
+        <i class="material-icons">check_circle</i>
+        <p>Empresas sincronizadas com sucesso!</p>
+    </div>
+    <!-- Loader -->
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="../js/materialize.js"></script>
+    <script src="../js/funcoesGetCache.js"></script>
     <script src="../js/reqEmpresas.js"></script>
+    <script src="../js/documentos.js"></script>
+    <script src="../js/prazo.js"></script>
+    <script src="../js/empresaSelecionada.js"></script>
     <script src="../js/informativo.js"></script>
 </body>
 

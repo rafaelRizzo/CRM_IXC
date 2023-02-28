@@ -1,3 +1,7 @@
+const c_loader = document.querySelector(".container-loader")
+const c_loader_sucesso = document.querySelector(".container-loader-sucesso")
+
+
 // Iniciando as funções que serão usadas
 const getEmpresas = () => {
     $.ajax({
@@ -6,14 +10,26 @@ const getEmpresas = () => {
         dataType: "json",
         beforeSend: function () {
             // 
+            c_loader.style.opacity = '1'
+            c_loader.style.display = 'flex'
         }
     }).done(function (res) {
+        c_loader.style.opacity = '0'
+        c_loader.style.display = 'none'
 
         // Aqui removo a option do select que informava que estava carregando.
         $("#carregando-empresas").remove()
         $(".select-wrapper ul li")[1].remove()
 
         if (res != 'false') {
+            c_loader_sucesso.style.opacity = '1'
+            c_loader_sucesso.style.display = 'flex'
+
+            setTimeout(() => {
+                c_loader_sucesso.style.opacity = '0'
+                c_loader_sucesso.style.display = 'none'
+            }, 2000)
+
             // Setamos a resposta da requisição em uma varivael e depois no localstorage 
             let arr = res
             localStorage.setItem('empresas', JSON.stringify(arr));
@@ -60,3 +76,10 @@ if (localStorage.getItem('empresas') == null) {
 } else {
     writeCacheEmpresa()
 }
+
+const sync_empresas = document.querySelector("#sync-empresas")
+
+sync_empresas.addEventListener("click", () => {
+    getEmpresas()
+    writeCacheEmpresa()
+})

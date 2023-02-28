@@ -69,6 +69,7 @@ li a:hover {
 li a .material-icons {
     font-size: 60px;
     color: var(--purple2);
+    margin-bottom: 10px;
     transition: all .2s ease;
 }
 
@@ -83,6 +84,10 @@ li a span {
 li a:hover .material-icons,
 li a:hover span {
     color: var(--purple1);
+}
+
+li a:hover .material-icons {
+    scale: 120%;
 }
 
 
