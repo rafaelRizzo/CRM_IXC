@@ -29,6 +29,8 @@ if ($_SESSION['login'] != 'true') {
     <link rel="stylesheet" href="../css/modais/style.css">
     <link rel="stylesheet" href="../css/recolor.css">
     <link rel="stylesheet" href="../css/loader.css">
+    <link rel="stylesheet" href="../css/form.css">
+    <link rel="stylesheet" href="../css/stepper.css">
     <link rel="stylesheet" href="./css/style.css">
 
     <!-- CSS -->
@@ -42,14 +44,120 @@ if ($_SESSION['login'] != 'true') {
     <!-- Jquery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
-    <div class="input-field col s12">
-        <select id="empresa">
-            <option value="" selected disabled>Selecione a empresa que está atendendo.</option>
-            <option id="carregando-empresas" value="" disabled>Carregando... aguarde</option>
-        </select>
+    <div class="container-wizard">
+        <section class="section step-wizard">
+            <ul class="step-wizard-list">
+                <li class="step-wizard-item current-item">
+                    <span class="progress-count">1</span>
+                    <span class="progress-label">Dados pessoais</span>
+                </li>
+                <li class="step-wizard-item">
+                    <span class="progress-count">2</span>
+                    <span class="progress-label">Assunto do atendimento</span>
+                </li>
+                <li class="step-wizard-item">
+                    <span class="progress-count">3</span>
+                    <span class="progress-label">Informações complementares</span>
+                </li>
+                <li class="step-wizard-item">
+                    <span class="progress-count">4</span>
+                    <span class="progress-label">Finalização</span>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div class="container-form">
+
+        <!-- Dados pessoais -->
+        <form id="form1" data-step="1">
+            <div class="d-flex">
+                <select id="empresa" class="browser-default">
+                    <option value="" selected disabled>Selecione a empresa que está atendendo.</option>
+                    <option id="carregando-empresas" value="" disabled>Carregando... aguarde</option>
+                </select>
+            </div>
+
+            <div class="d-flex">
+                <input id="nome-cliente" type="text" placeholder="Nome do cliente" autocomplete="off">
+                <input id="doc-cliente" type="text" maxlength="14" placeholder="Documento do cliente" autocomplete="off">
+                <input id="telefone-cliente" type="text" data-mask="(00) 00000-0000" placeholder="Telefone do cliente" autocomplete="off">
+            </div>
+
+            <div class="d-flex">
+                <input id="endereco-cliente" type="text" placeholder="Endereço do cliente" autocomplete="off">
+            </div>
+
+            <div class="container-btn-form">
+                <p class="btn waves-effect waves-light" id="back">Voltar</p>
+                <button class="btn waves-effect waves-light" id="next">Avançar</button>
+            </div>
+        </form>
+        <!-- Dados pessoais -->
+
+        <!-- Assunto do atendimento -->
+        <form id="form2" data-step="2">
+            <div class="d-flex">
+                <select id="assunto_atendimento" class="browser-default">
+                    <option value="" selected disabled>Selecione o motivo do contato
+                    </option>
+                    <option value="SEM CONEXÃO">Sem Conexão</option>
+                    <option value="OSCILAÇÃO">Oscilação</option>
+                    <option value="LENTIDÃO">Lentidão</option>
+                    <option value="POSTE PEGOU FOGO">Poste pegou fogo</option>
+                    <option value="FALTA DE COMUNICAÇÃO">Falta de comunicação</option>
+                    <option value="DERRUBOU O APARELHO NO CHÃO">Derrubou o aparelho no chão</option>
+                    <option value="APARELHO SOLTOU DA PAREDE">Aparelho soltou da parede</option>
+                    <option value="APARELHO QUEIMOU">Aparelho queimou</option>
+                    <option value="MANUTENÇÃO">Manutenção</option>
+                    <option value="CONFIGURAÇÃO">Configuração</option>
+                    <option value="TROCA DE SENHA/E/OU NOME WIFI">Troca de senha/nome do wifi
+                    </option>
+                    <option value="MUDANÇA DE COMODO">Mudança de cômodo</option>
+                    <option value="CABO ARREBENTADO">Cabo arrebentado</option>
+                    <option value="TROCAR/REFAZER DE CONECTOR">Trocar/refazer conector</option>
+                    <option value="VENDA DE ROTEADOR">Venda de roteador</option>
+                    <option value="JÁ TINHA ATENDIMENTO ABERTO">Já possui atendimento aberto
+                    </option>
+                    <option value="CONEXÃO NORMALIZADA">Conexão normalizada</option>
+                    <option value="ATENDIMENTO FORA DO PRAZO">Atendimento fora do prazo</option>
+                    <option value="HORÁRIO COMERCIAL">Horário comercial</option>
+                    <option value="LIGAÇÃO CAIU">Ligação caiu</option>
+                    <option value="OUTROS">Outros</option>
+                </select>
+            </div>
+
+            <div class="container-btn-form">
+                <p class="btn waves-effect waves-light" id="back">Voltar</p>
+                <button class="btn waves-effect waves-light" id="next">Avançar</button>
+            </div>
+        </form>
+        <!-- Assunto do atendimento -->
+
+        <!-- Dados complementares -->
+        <form id="form3" data-step="3">
+            <div class="input-field col s12">
+                <select multiple>
+                    <option value="" disabled selected>Choose your option</option>
+                    <option value="1">Option 1</option>
+                    <option value="2">Option 2</option>
+                    <option value="3">Option 3</option>
+                </select>
+                <label>Materialize Multiple Select</label>
+            </div>
+
+            <div class="container-btn-form">
+                <p class="btn waves-effect waves-light" id="back">Voltar</p>
+                <button class="btn waves-effect waves-light" id="next">Avançar</button>
+            </div>
+        </form>
+        <!-- Dados complementares -->
+
+
+
     </div>
 
     <!-- Botão mais -->
@@ -81,7 +189,7 @@ if ($_SESSION['login'] != 'true') {
                 </a>
             </li>
             <li>
-                <a class="btn-floating tooltipped waves-effect waves-light" id="prazo-icon" data-position="left" data-tooltip="Selecione uma empresa para saber o prazo">
+                <a class="btn-floating tooltipped waves-effect waves-light" id="prazo-icon" data-position="left" data-tooltip="Prazo da empresa">
                     <i class="material-icons">access_time</i>
                 </a>
             </li>
@@ -120,6 +228,10 @@ if ($_SESSION['login'] != 'true') {
 
     <!-- Modais -->
 
+    <!-- Toast -->
+    <a onclick="M.toast({html: 'Selecione a empresa que gostaria de saber o prazo'})" class="btn-toast-modal"></a>
+    <!-- Toast -->
+
     <!-- Loader -->
     <div class="container-loader">
         <div class="preloader-wrapper big active">
@@ -146,6 +258,7 @@ if ($_SESSION['login'] != 'true') {
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <script src="../js/materialize.js"></script>
     <script src="../js/funcoesGetCache.js"></script>
     <script src="../js/reqEmpresas.js"></script>
@@ -153,6 +266,8 @@ if ($_SESSION['login'] != 'true') {
     <script src="../js/prazo.js"></script>
     <script src="../js/empresaSelecionada.js"></script>
     <script src="../js/informativo.js"></script>
+    <script src="../js/mascaras.js"></script>
+    <script src="../js/steps.js"></script>
 </body>
 
 </html>

@@ -5,3 +5,7 @@
 #minha-conta button:hover {
     opacity: .8;
 }
+
+.btn-toast-modal{
+    display: none;
+}

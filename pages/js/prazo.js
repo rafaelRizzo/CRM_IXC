@@ -1,10 +1,10 @@
 const prazo_icon = document.querySelector("#prazo-icon")
 
-const setPrazo = () => {
+prazo_icon.addEventListener("click", () => {
     if (get_empresa_documentos() == null) {
-
-        prazo_icon.setAttribute("data-tooltip", "Selecione a empresa para saber o prazo");
+        M.toast({ html: "Selecione a empresa que gostaria de saber o prazo" });
     } else {
-        prazo_icon.setAttribute("data-tooltip", `Prazo: ${get_empresa_prazo()}`);
+        M.toast({ html: get_empresa_prazo() });
+
     }
-}
+})

@@ -19,7 +19,7 @@ const getEmpresas = () => {
 
         // Aqui removo a option do select que informava que estava carregando.
         $("#carregando-empresas").remove()
-        $(".select-wrapper ul li")[1].remove()
+        // $(".select-wrapper ul li")[1].remove()
 
         if (res != 'false') {
             c_loader_sucesso.style.opacity = '1'

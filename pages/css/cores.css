@@ -21,3 +21,7 @@
     --green-light2: #516951;
     --black: #222;
 }
+
+body{
+    background-color: white;
+}
