@@ -74,6 +74,17 @@ if ($_SESSION['login'] != 'true') {
 
         <!-- Dados pessoais -->
         <form id="form1" data-step="1">
+            <div class="tipo-atendiment-cliente d-flex d-flex-mob">
+                <label>
+                    <input id="canal-atendimento" name="canal-atendimento" type="radio" value="CHAT" />
+                    <span>Chat</span>
+                </label>
+                <label>
+                    <input id="canal-atendimento" name="canal-atendimento" type="radio" value="TELEFONE" />
+                    <span>Telefone</span>
+                </label>
+            </div>
+
             <div class="d-flex">
                 <select id="empresa" class="browser-default">
                     <option value="" selected disabled>Selecione a empresa que está atendendo.</option>
@@ -92,7 +103,8 @@ if ($_SESSION['login'] != 'true') {
             </div>
 
             <div class="container-btn-form">
-                <p class="btn waves-effect waves-light" id="back">Voltar</p>
+
+                <a href="../setores/" class="btn waves-effect waves-light">Voltar</a>
                 <button class="btn waves-effect waves-light" id="next">Avançar</button>
             </div>
         </form>
@@ -101,7 +113,7 @@ if ($_SESSION['login'] != 'true') {
         <!-- Assunto do atendimento -->
         <form id="form2" data-step="2">
             <div class="d-flex">
-                <select id="assunto_atendimento" class="browser-default">
+                <select id="assunto-atendimento" class="browser-default">
                     <option value="" selected disabled>Selecione o motivo do contato
                     </option>
                     <option value="SEM CONEXÃO">Sem Conexão</option>
@@ -129,6 +141,15 @@ if ($_SESSION['login'] != 'true') {
                     <option value="OUTROS">Outros</option>
                 </select>
             </div>
+            <div class="d-flex">
+                <select id="tecnologia-cliente" class="browser-default">
+                    <option value="" selected disabled>Selecione a tecnologia do cliente
+                    </option>
+                    <option value="FIBRA">FIBRA</option>
+                    <option value="CABO">CABO</option>
+                    <option value="RÁDIO">RÁDIO</option>
+                </select>
+            </div>
 
             <div class="container-btn-form">
                 <p class="btn waves-effect waves-light" id="back">Voltar</p>
@@ -139,14 +160,72 @@ if ($_SESSION['login'] != 'true') {
 
         <!-- Dados complementares -->
         <form id="form3" data-step="3">
-            <div class="input-field col s12">
-                <select multiple>
-                    <option value="" disabled selected>Choose your option</option>
-                    <option value="1">Option 1</option>
-                    <option value="2">Option 2</option>
-                    <option value="3">Option 3</option>
-                </select>
-                <label>Materialize Multiple Select</label>
+
+            <div class="d-flex">
+                <div class="informacoes-complementares-cliente">
+                    <label class="box-los">
+                        <input id="check-los" type="checkbox" />
+                        <span>LOS Acesa</span>
+                    </label>
+                    <label class="box-verificou-cabos">
+                        <input id="check-verificou-cabos" type="checkbox" />
+                        <span>Cliente verificou os cabos dos aparelhos</span>
+                    </label>
+                    <label class="box-fez-procedimentos">
+                        <input id="check-procedimentos" type="checkbox" />
+                        <span>Cliente fez os procedimentos </span>
+                    </label>
+                    <label class="box-wifi-aparece">
+                        <input id="check-wifi-aparece" type="checkbox" />
+                        <span>Nome do wifi aparece</span>
+                    </label>
+                    <label class="box-normalizou">
+                        <input id="check-normalizou" type="checkbox" />
+                        <span>Até o final da ligação a conexão foi normalizada</span>
+                    </label>
+                </div>
+
+                <div class="box-teste-velocidade">
+                    <p class="mb-2">Teste de velocidade</p>
+                    <label>
+                        <p>Donwload</p>
+                        <input type="text" placeholder="Valor do Download" />
+                    </label>
+                    <label>
+                        <p>Upload</p>
+                        <input type="text" placeholder="Valor do Upload" />
+                    </label>
+                    <label>
+                        <p>Ping</p>
+                        <input type="text" placeholder="Valor do Ping" />
+                    </label>
+
+                    <div class="d-flex d-flex-mob">
+                        <label>
+                            <input id="teste-feito-via" name="teste-feito-via" type="radio" value="CABO" />
+                            <span>Cabo</span>
+                        </label>
+                        <label>
+                            <input id="teste-feito-via" name="teste-feito-via" type="radio" value="WIFI 2.4GHZ" />
+                            <span>Wifi 2.4GHZ</span>
+                        </label>
+                        <label>
+                            <input id="teste-feito-via" name="teste-feito-via" type="radio" value="WIFI 5.8GHZ" />
+                            <span>Wifi 5.8GHZ</span>
+                        </label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="box-taxa">
+                <label>
+                    <input type="text" id="cliente-ciente-taxa" placeholder="Cliente ciente da taxa. Ex: 30.00 ( Se não houver não preencha )" />
+                </label>
+            </div>
+
+            <div class="box-obs mt-2">
+                <textarea id="text-obs" class="materialize-textarea" data-length="1000" placeholder="Digite aqui se tiver alguma observação."></textarea>
             </div>
 
             <div class="container-btn-form">
@@ -155,9 +234,6 @@ if ($_SESSION['login'] != 'true') {
             </div>
         </form>
         <!-- Dados complementares -->
-
-
-
     </div>
 
     <!-- Botão mais -->
@@ -256,7 +332,6 @@ if ($_SESSION['login'] != 'true') {
     </div>
     <!-- Loader -->
 
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
     <script src="../js/materialize.js"></script>
@@ -268,6 +343,9 @@ if ($_SESSION['login'] != 'true') {
     <script src="../js/informativo.js"></script>
     <script src="../js/mascaras.js"></script>
     <script src="../js/steps.js"></script>
+    <script src="../js/tipoAtendimento.js"></script>
+    <script src="./js/ocultarInputs.js"></script>
+    <script src="./js/laudos.js"></script>
 </body>
 
 </html>

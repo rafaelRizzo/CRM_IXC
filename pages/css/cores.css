@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    box-sizing: border-box !important;
 }
 
 :root {
@@ -22,6 +22,7 @@
     --black: #222;
 }
 
-body{
-    background-color: white;
+body {
+    background-color: var(--white);
+    overflow-x: hidden;
 }

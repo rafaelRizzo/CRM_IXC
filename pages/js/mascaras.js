@@ -603,8 +603,6 @@
     }, globals.watchInterval);
 }, window.jQuery, window.Zepto));
 
-
-
 var mask_telefone = function (val) {
     return val.replace(/\D/g, '').length === 11 ? '(00) 00000-0000' : '(00) 0000-00009';
 },
@@ -615,42 +613,6 @@ var mask_telefone = function (val) {
     };
 
 $('#telefone-cliente').mask(mask_telefone, spOptions);
-
-
-// function cnpj(v) {
-//     v = v.replace(/\D/g, "")                           //Remove tudo o que não é dígito
-//     v = v.replace(/^(\d{2})(\d)/, "$1.$2")             //Coloca ponto entre o segundo e o terceiro dígitos
-//     v = v.replace(/^(\d{2})\.(\d{3})(\d)/, "$1.$2.$3") //Coloca ponto entre o quinto e o sexto dígitos
-//     v = v.replace(/\.(\d{3})(\d)/, ".$1/$2")           //Coloca uma barra entre o oitavo e o nono dígitos
-//     v = v.replace(/(\d{4})(\d)/, "$1-$2")              //Coloca um hífen depois do bloco de quatro dígitos
-//     return v
-// }
-
-// function cpf(v) {
-//     v = v.replace(/\D/g, "")                    //Remove tudo o que não é dígito
-//     v = v.replace(/(\d{3})(\d)/, "$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-//     v = v.replace(/(\d{3})(\d)/, "$1.$2")       //Coloca um ponto entre o terceiro e o quarto dígitos
-//     //de novo (para o segundo bloco de números)
-//     v = v.replace(/(\d{3})(\d{1,2})$/, "$1-$2") //Coloca um hífen entre o terceiro e o quarto dígitos
-//     return v
-// }
-
-// document.addEventListener("keyup", (e) => {
-//     if (e.keyCode === 173 || e.keyCode === 109) {
-//         e.preventDefault()
-//         return false
-//     }
-// })
-
-// document.querySelector("#doc-cliente").addEventListener("blur", () => {
-//     console.log(document.querySelector("#doc-cliente").value.length)
-//     if (document.querySelector("#doc-cliente").value.length === 11 || document.querySelector("#doc-cliente").value.length <= 17) {
-//         document.querySelector("#doc-cliente").value = cpf(document.querySelector("#doc-cliente").value)
-//     } else {
-//         cnpj(document.querySelector("#doc-cliente").value)
-//         document.querySelector("#doc-cliente").value = cnpj(document.querySelector("#doc-cliente").value)
-//     }
-// })
 
 $('#doc-cliente').mask('000.000.000-00', {
     onKeyPress: function (cpfcnpj, e, field, options) {

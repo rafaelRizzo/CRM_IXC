@@ -1,3 +1,18 @@
-body {
-    overflow-x: hidden;
+.informacoes-complementares-cliente{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.informacoes-complementares-cliente>label {
+    margin-bottom: 10px;
+}
+
+.box-teste-velocidade .d-flex {
+    align-items: center;
+    justify-content: center;
+    color: #222;
+}
+.box-teste-velocidade .d-flex>label{
+    color: #222;
 }
