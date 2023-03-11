@@ -28,7 +28,7 @@ body {
     font-family: 'Barlow', sans-serif;
     min-height: 100vh;
     background-color: var(--white);
-    user-select: none;
+    -webkit-user-select: none;
 }
 
 ul {
@@ -89,7 +89,6 @@ li a:hover .material-icons {
     scale: 120%;
 }
 
-
 /* @media (prefers-color-scheme: dark) {
     body {
         background-color: #222;
@@ -106,3 +105,22 @@ li a:hover .material-icons {
         color: var(--white);
     }
 } */
+
+@media (max-width: 768px) {
+    ul li a {
+        min-width: 50px;
+        max-width: 50px;
+
+        min-height: 50px;
+        max-height: 50px;
+    }
+
+    span {
+        display: none;
+    }
+
+    li a .material-icons {
+        font-size: 20px;
+        margin-bottom: 0;
+    }
+}
